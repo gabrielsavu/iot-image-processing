@@ -51,8 +51,8 @@ $ sudo apt-get install libboost-all-dev
 ```bash
 curl --location --request POST 'http://localhost:8080/volume' \
 --form 'n="2"' \
---form 'image0=@"/home/hyperledger/Downloads/on_top.jpg"' \
---form 'image1=@"/home/hyperledger/Downloads/portrait.jpg"' \
+--form 'image0=@"./res/on_top.jpg"' \
+--form 'image1=@"./res/portrait.jpg"' \
 --form 'imagePoints0="750 6950
 4972 6412
 4912 1572
