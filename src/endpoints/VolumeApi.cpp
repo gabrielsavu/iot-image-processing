@@ -50,12 +50,13 @@ void VolumeApi::handle(const Pistache::Rest::Request &request, Pistache::Http::R
 
     float volume = calculateVolume(imagesToProcess, 20000, 10, 30, 10, 30, 0, 28);
 
-    std::cout << "Volume: " << volume;
-    response.send(Pistache::Http::Code::Ok);
+    spdlog::info("handle() - volume: {}", volume);
+
+    response.send(Pistache::Http::Code::Ok, std::to_string(volume));
 }
 
 float_t VolumeApi::calculateVolume(std::vector<std::tuple<cv::Mat, cv::Mat, cv::Mat, cv::Mat, cv::Mat>> images,
-                                   int16_t numberOfPoints, uint32_t xBoxRangeFrom, uint32_t xBoxRangeTo,
+                                   uint32_t numberOfPoints, uint32_t xBoxRangeFrom, uint32_t xBoxRangeTo,
                                    uint32_t yBoxRangeFrom, uint32_t yBoxRangeTo,
                                    uint32_t zBoxRangeFrom, uint32_t zBoxRangeTo) {
 
@@ -72,14 +73,14 @@ float_t VolumeApi::calculateVolume(std::vector<std::tuple<cv::Mat, cv::Mat, cv::
 
     uint32_t sigma = 0;
     // walk to all points
-    for (int i = 0; i < numberOfPoints; i++) {
+    for (uint32_t k = 0; k < numberOfPoints; k++) {
         int8_t isValidPoint = 1;
         // walk to all images and check if the point is white in all of them
-        for (int j = 0; j < images.size(); i++) {
+        for (int j = 0; j < images.size(); j++) {
 
-            cv::Point2f projectedPoint = this->projectPoint(images[j], points[j][i]);
+            cv::Point2f projectedPoint = this->projectPoint(images[j], points[j][k]);
 
-            cv::Mat image = std::get<0>(images[i]);
+            cv::Mat image = std::get<0>(images[j]);
             if (image.at<int>(projectedPoint.x, projectedPoint.y) != 0) {
                 isValidPoint *= 0;
             }

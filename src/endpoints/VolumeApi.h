@@ -23,7 +23,7 @@ private:
     /// \param numberOfPoints
     /// \return the volume
     float_t calculateVolume(std::vector<std::tuple<cv::Mat, cv::Mat, cv::Mat, cv::Mat, cv::Mat>> images,
-                            int16_t numberOfPoints, uint32_t xBoxRangeFrom, uint32_t xBoxRangeTo,
+                            uint32_t numberOfPoints, uint32_t xBoxRangeFrom, uint32_t xBoxRangeTo,
                             uint32_t yBoxRangeFrom, uint32_t yBoxRangeTo,
                             uint32_t zBoxRangeFrom, uint32_t zBoxRangeTo);
 

@@ -119,13 +119,13 @@ std::vector<cv::Point3f> EndpointApi::fromStringToPoints3D(std::string content) 
 }
 
 cv::Mat EndpointApi::fromStringToMatrix(std::string content, int16_t rows, int16_t cols) {
-    cv::Mat mat(rows, cols, CV_16U);
+    cv::Mat mat(rows, cols, CV_32F);
     std::istringstream iss(content);
-    int16_t temp;
+    float_t temp;
     for (int16_t i = 0; i < rows; i++) {
         for (int16_t j = 0; j < rows; j++) {
             iss >> temp;
-            mat.at<u_int16_t>(i, j) = temp;
+            mat.at<float_t>(i, j) = temp;
         }
     }
     return mat;
@@ -139,8 +139,8 @@ cv::Point2f EndpointApi::projectPoint(std::tuple<cv::Mat, cv::Mat, cv::Mat, cv::
 
     objectPoints.push_back(point);
 
-    cv::projectPoints(objectPoints, std::get<3>(image), std::get<4>(image), std::get<1>(image), std::get<2>(image),
-                      imagePoints);
+    cv::projectPoints(objectPoints, std::get<3>(image), std::get<4>(image),
+            std::get<1>(image), std::get<2>(image), imagePoints);
 
     return imagePoints[0];
 }
