@@ -159,3 +159,16 @@ cv::Point3f EndpointApi::randomPoint3D(uint32_t xRangeFrom, uint32_t xRangeTo,
     point.z = distributionZ(generator);
     return point;
 }
+cv::Point2f EndpointApi::randomPoint2D(uint32_t xRangeFrom, uint32_t xRangeTo,
+                                       uint32_t yRangeFrom, uint32_t yRangeTo) {
+    std::random_device rand_dev;
+    std::mt19937 generator(rand_dev());
+    std::uniform_int_distribution<uint32_t> distributionX(xRangeFrom, xRangeTo);
+    std::uniform_int_distribution<uint32_t> distributionY(yRangeFrom, yRangeTo);
+
+    cv::Point2f point;
+    point.x = distributionX(generator);
+    point.y = distributionY(generator);
+
+    return point;
+}

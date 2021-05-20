@@ -1,6 +1,7 @@
 #include <signal.h>
 #include "Application.h"
 #include "endpoints/VolumeApi.h"
+#include "endpoints/SurfaceApi.h"
 #include "spdlog/spdlog.h"
 #include <spdlog/sinks/stdout_sinks.h>
 
@@ -21,9 +22,12 @@ int main(int argc, char **argv) {
     }
 
     auto volumeApi = std::make_shared<VolumeApi>();
+    auto surfaceApi = std::make_shared<SurfaceApi>();
 
     Application application("localhost", 8080, 4);
+       application.addPostRoute("/surface",&SurfaceApi::handle,surfaceApi);
     application.addPostRoute("/volume", &VolumeApi::handle, volumeApi);
+ 
     application.start();
 
 
