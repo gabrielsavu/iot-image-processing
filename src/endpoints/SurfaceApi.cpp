@@ -21,7 +21,7 @@ void SurfaceApi::handle(const Pistache::Rest::Request &request, Pistache::Http::
     auto imageDecoded = this->fromStringToImage(image->getContent());
     spdlog::info("handle() - image  height: {} width: {}", imageDecoded.rows, imageDecoded.cols);
     auto imageBW = this->transformToBWImage(imageDecoded);
-    float surface = calculateSurface(imageBW, 2000, 0, imageDecoded.rows - 2, 0, imageDecoded.cols - 2);
+    float surface = calculateSurface(imageBW, 20000, 0, imageDecoded.rows - 3, 0, imageDecoded.cols - 3);
 
     spdlog::info("handle() - surface: {}", surface);
 
@@ -35,8 +35,9 @@ float_t SurfaceApi::calculateSurface(cv::Mat image,
                                      uint32_t yBoxRangeFrom, uint32_t yBoxRangeTo) {
 
 
-    spdlog::info("calculateSurface() - numberOfPoints: {}, xBoxRangeFrom: {}, xBoxRangeTo: {}, yBoxRangeFrom: {}, yBoxRangeTo: {}", 
-                numberOfPoints, xBoxRangeFrom, xBoxRangeTo, yBoxRangeFrom, yBoxRangeTo);
+    spdlog::info(
+            "calculateSurface() - numberOfPoints: {}, xBoxRangeFrom: {}, xBoxRangeTo: {}, yBoxRangeFrom: {}, yBoxRangeTo: {}",
+            numberOfPoints, xBoxRangeFrom, xBoxRangeTo, yBoxRangeFrom, yBoxRangeTo);
     std::vector<cv::Point2f> points(numberOfPoints);
 
     for (int j = 0; j < numberOfPoints; j++) {
@@ -44,7 +45,7 @@ float_t SurfaceApi::calculateSurface(cv::Mat image,
         points[j] = tempPoints;
     }
 
-    float_t rectangleArea = (xBoxRangeTo - xBoxRangeFrom) /(float_t)  (yBoxRangeTo - yBoxRangeFrom);
+    float_t rectangleArea = (xBoxRangeTo - xBoxRangeFrom) / (float_t) (yBoxRangeTo - yBoxRangeFrom);
 
     spdlog::info("calculateSurface() - rectangleArea: {}", rectangleArea);
 
@@ -57,6 +58,6 @@ float_t SurfaceApi::calculateSurface(cv::Mat image,
         }
     }
     spdlog::info("calculateSurface() - pointsInObject: {}", pointsInObject);
-    float_t surface = rectangleArea * ((float_t)pointsInObject / numberOfPoints); 
+    float_t surface = rectangleArea * ((float_t) pointsInObject / numberOfPoints);
     return surface;
 }
