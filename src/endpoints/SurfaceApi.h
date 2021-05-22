@@ -22,7 +22,7 @@ private:
     /// \param images a vector of tuples <black and white image, camera matrix, dist coefficients, rotation vector, translation vector>
     /// \param numberOfPoints
     /// \return the SURFACE
-    float_t calculateSurface(std::vector<std::tuple<cv::Mat, cv::Mat, cv::Mat, cv::Mat, cv::Mat>> images,
+    float_t calculateSurface(cv::Mat images,
                             uint32_t numberOfPoints, uint32_t xBoxRangeFrom, uint32_t xBoxRangeTo,
                             uint32_t yBoxRangeFrom, uint32_t yBoxRangeTo);
 

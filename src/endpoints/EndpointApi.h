@@ -18,8 +18,7 @@
 
 class EndpointApi {
 
-private:
-
+protected:
     /// Transform RGB image into black and white image.
     /// \param RGB image
     /// \return black and white image
@@ -30,7 +29,6 @@ private:
     /// \return a clean image without noise
     cv::Mat undesiredObjects(const cv::Mat &image);
 
-protected:
     /// Transform de image to black and white and calibrate the image in spec to camera intrinsic.
     /// \param image the image to be transformed
     /// \param imagePoints 2d image points that correspond to the object points
@@ -80,8 +78,9 @@ protected:
     cv::Point3f randomPoint3D(uint32_t xRangeFrom, uint32_t xRangeTo,
                               uint32_t yRangeFrom, uint32_t yRangeTo,
                               uint32_t zRangeFrom, uint32_t zRangeTo);
+
     cv::Point2f randomPoint2D(uint32_t xRangeFrom, uint32_t xRangeTo,
-                              uint32_t yRangeFrom, uint32_t yRangeTo);                              
+                              uint32_t yRangeFrom, uint32_t yRangeTo);
 
 public:
     /// This function handles the request for this specific endpoint.

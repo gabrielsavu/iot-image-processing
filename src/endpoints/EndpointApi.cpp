@@ -140,7 +140,7 @@ cv::Point2f EndpointApi::projectPoint(std::tuple<cv::Mat, cv::Mat, cv::Mat, cv::
     objectPoints.push_back(point);
 
     cv::projectPoints(objectPoints, std::get<3>(image), std::get<4>(image),
-            std::get<1>(image), std::get<2>(image), imagePoints);
+                      std::get<1>(image), std::get<2>(image), imagePoints);
 
     return imagePoints[0];
 }
@@ -159,6 +159,7 @@ cv::Point3f EndpointApi::randomPoint3D(uint32_t xRangeFrom, uint32_t xRangeTo,
     point.z = distributionZ(generator);
     return point;
 }
+
 cv::Point2f EndpointApi::randomPoint2D(uint32_t xRangeFrom, uint32_t xRangeTo,
                                        uint32_t yRangeFrom, uint32_t yRangeTo) {
     std::random_device rand_dev;

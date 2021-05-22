@@ -16,6 +16,8 @@ add_executable(image-processing
         src/main.cpp
         src/endpoints/VolumeApi.cpp
         src/endpoints/VolumeApi.h
+        src/endpoints/SurfaceApi.cpp
+        src/endpoints/SurfaceApi.h
         src/Application.cpp
         src/Application.h
         src/endpoints/EndpointApi.cpp
