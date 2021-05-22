@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/image-processing.dir/src/Application.cpp.o"
   "CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.o"
+  "CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.o"
   "CMakeFiles/image-processing.dir/src/endpoints/VolumeApi.cpp.o"
   "CMakeFiles/image-processing.dir/src/main.cpp.o"
   "CMakeFiles/image-processing.dir/src/utils/body-parser/BodyFormParser.cpp.o"

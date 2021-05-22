@@ -74,12 +74,12 @@ clean: CMakeFiles/image-processing.dir/clean
 CMakeFiles/image-processing.dir/all:
 	$(MAKE) -f CMakeFiles/image-processing.dir/build.make CMakeFiles/image-processing.dir/depend
 	$(MAKE) -f CMakeFiles/image-processing.dir/build.make CMakeFiles/image-processing.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target image-processing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target image-processing"
 .PHONY : CMakeFiles/image-processing.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/image-processing.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/avram/Desktop/iot-image-processing/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/avram/Desktop/iot-image-processing/build/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/image-processing.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/avram/Desktop/iot-image-processing/build/CMakeFiles 0
 .PHONY : CMakeFiles/image-processing.dir/rule

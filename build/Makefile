@@ -177,6 +177,33 @@ src/endpoints/EndpointApi.cpp.s:
 	$(MAKE) -f CMakeFiles/image-processing.dir/build.make CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.s
 .PHONY : src/endpoints/EndpointApi.cpp.s
 
+src/endpoints/SurfaceApi.o: src/endpoints/SurfaceApi.cpp.o
+
+.PHONY : src/endpoints/SurfaceApi.o
+
+# target to build an object file
+src/endpoints/SurfaceApi.cpp.o:
+	$(MAKE) -f CMakeFiles/image-processing.dir/build.make CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.o
+.PHONY : src/endpoints/SurfaceApi.cpp.o
+
+src/endpoints/SurfaceApi.i: src/endpoints/SurfaceApi.cpp.i
+
+.PHONY : src/endpoints/SurfaceApi.i
+
+# target to preprocess a source file
+src/endpoints/SurfaceApi.cpp.i:
+	$(MAKE) -f CMakeFiles/image-processing.dir/build.make CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.i
+.PHONY : src/endpoints/SurfaceApi.cpp.i
+
+src/endpoints/SurfaceApi.s: src/endpoints/SurfaceApi.cpp.s
+
+.PHONY : src/endpoints/SurfaceApi.s
+
+# target to generate assembly for a file
+src/endpoints/SurfaceApi.cpp.s:
+	$(MAKE) -f CMakeFiles/image-processing.dir/build.make CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.s
+.PHONY : src/endpoints/SurfaceApi.cpp.s
+
 src/endpoints/VolumeApi.o: src/endpoints/VolumeApi.cpp.o
 
 .PHONY : src/endpoints/VolumeApi.o
@@ -300,6 +327,9 @@ help:
 	@echo "... src/endpoints/EndpointApi.o"
 	@echo "... src/endpoints/EndpointApi.i"
 	@echo "... src/endpoints/EndpointApi.s"
+	@echo "... src/endpoints/SurfaceApi.o"
+	@echo "... src/endpoints/SurfaceApi.i"
+	@echo "... src/endpoints/SurfaceApi.s"
 	@echo "... src/endpoints/VolumeApi.o"
 	@echo "... src/endpoints/VolumeApi.i"
 	@echo "... src/endpoints/VolumeApi.s"

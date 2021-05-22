@@ -83,9 +83,22 @@ CMakeFiles/image-processing.dir/src/endpoints/VolumeApi.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/image-processing.dir/src/endpoints/VolumeApi.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/avram/Desktop/iot-image-processing/src/endpoints/VolumeApi.cpp -o CMakeFiles/image-processing.dir/src/endpoints/VolumeApi.cpp.s
 
+CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.o: CMakeFiles/image-processing.dir/flags.make
+CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.o: ../src/endpoints/SurfaceApi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.o -c /home/avram/Desktop/iot-image-processing/src/endpoints/SurfaceApi.cpp
+
+CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/avram/Desktop/iot-image-processing/src/endpoints/SurfaceApi.cpp > CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.i
+
+CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/avram/Desktop/iot-image-processing/src/endpoints/SurfaceApi.cpp -o CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.s
+
 CMakeFiles/image-processing.dir/src/Application.cpp.o: CMakeFiles/image-processing.dir/flags.make
 CMakeFiles/image-processing.dir/src/Application.cpp.o: ../src/Application.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/image-processing.dir/src/Application.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/image-processing.dir/src/Application.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/image-processing.dir/src/Application.cpp.o -c /home/avram/Desktop/iot-image-processing/src/Application.cpp
 
 CMakeFiles/image-processing.dir/src/Application.cpp.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/image-processing.dir/src/Application.cpp.s: cmake_force
 
 CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.o: CMakeFiles/image-processing.dir/flags.make
 CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.o: ../src/endpoints/EndpointApi.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.o -c /home/avram/Desktop/iot-image-processing/src/endpoints/EndpointApi.cpp
 
 CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.s: cmake_force
 
 CMakeFiles/image-processing.dir/src/utils/body-parser/BodyFormParser.cpp.o: CMakeFiles/image-processing.dir/flags.make
 CMakeFiles/image-processing.dir/src/utils/body-parser/BodyFormParser.cpp.o: ../src/utils/body-parser/BodyFormParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/image-processing.dir/src/utils/body-parser/BodyFormParser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/image-processing.dir/src/utils/body-parser/BodyFormParser.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/image-processing.dir/src/utils/body-parser/BodyFormParser.cpp.o -c /home/avram/Desktop/iot-image-processing/src/utils/body-parser/BodyFormParser.cpp
 
 CMakeFiles/image-processing.dir/src/utils/body-parser/BodyFormParser.cpp.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/image-processing.dir/src/utils/body-parser/BodyFormParser.cpp.s: cmak
 
 CMakeFiles/image-processing.dir/src/utils/body-parser/FormData.cpp.o: CMakeFiles/image-processing.dir/flags.make
 CMakeFiles/image-processing.dir/src/utils/body-parser/FormData.cpp.o: ../src/utils/body-parser/FormData.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/image-processing.dir/src/utils/body-parser/FormData.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/image-processing.dir/src/utils/body-parser/FormData.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/image-processing.dir/src/utils/body-parser/FormData.cpp.o -c /home/avram/Desktop/iot-image-processing/src/utils/body-parser/FormData.cpp
 
 CMakeFiles/image-processing.dir/src/utils/body-parser/FormData.cpp.i: cmake_force
@@ -139,6 +152,7 @@ CMakeFiles/image-processing.dir/src/utils/body-parser/FormData.cpp.s: cmake_forc
 image__processing_OBJECTS = \
 "CMakeFiles/image-processing.dir/src/main.cpp.o" \
 "CMakeFiles/image-processing.dir/src/endpoints/VolumeApi.cpp.o" \
+"CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.o" \
 "CMakeFiles/image-processing.dir/src/Application.cpp.o" \
 "CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.o" \
 "CMakeFiles/image-processing.dir/src/utils/body-parser/BodyFormParser.cpp.o" \
@@ -149,6 +163,7 @@ image__processing_EXTERNAL_OBJECTS =
 
 image-processing: CMakeFiles/image-processing.dir/src/main.cpp.o
 image-processing: CMakeFiles/image-processing.dir/src/endpoints/VolumeApi.cpp.o
+image-processing: CMakeFiles/image-processing.dir/src/endpoints/SurfaceApi.cpp.o
 image-processing: CMakeFiles/image-processing.dir/src/Application.cpp.o
 image-processing: CMakeFiles/image-processing.dir/src/endpoints/EndpointApi.cpp.o
 image-processing: CMakeFiles/image-processing.dir/src/utils/body-parser/BodyFormParser.cpp.o
@@ -173,7 +188,7 @@ image-processing: /usr/local/lib/libopencv_imgproc.so.4.5.2
 image-processing: /usr/local/lib/libopencv_core.so.4.5.2
 image-processing: /usr/lib/x86_64-linux-gnu/libpistache.so
 image-processing: CMakeFiles/image-processing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable image-processing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/avram/Desktop/iot-image-processing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable image-processing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/image-processing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
