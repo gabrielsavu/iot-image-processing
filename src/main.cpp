@@ -7,7 +7,7 @@
 
 
 int main(int argc, char **argv) {
-
+    std::cout<<"YHWLSD";
     spdlog::set_pattern("[%H:%M:%S %z] [%^%L%$] [thread %t] %v");
 
     sigset_t signals;

@@ -19,13 +19,13 @@ void SurfaceApi::handle(const Pistache::Rest::Request &request, Pistache::Http::
         return;
     }
 
-    auto cameraMatrixMat = this->fromStringToMatrix(cameraMatrix->getContent(), 3, 3);
+    // auto cameraMatrixMat = this->fromStringToMatrix(cameraMatrix->getContent(), 3, 3);
     
-    std::cv::Mat imageToProcess;
+   
 
-    for (int i = 0; i < std::atoi(n->getContent().c_str()); i++) {
-        auto image = bodyFormParser.get("image" + std::to_string(i));
-        auto imagePoints = bodyFormParser.get("imagePoints" + std::to_string(i));
+    
+        auto image = bodyFormParser.get("image");
+        auto imagePoints = bodyFormParser.get("imagePoints");
 
         if (image == nullptr || imagePoints == nullptr) {
             spdlog::info("handle() - end, Not_Acceptable");
@@ -35,24 +35,24 @@ void SurfaceApi::handle(const Pistache::Rest::Request &request, Pistache::Http::
 
         auto imageDecoded = this->fromStringToImage(image->getContent());
         auto imagePoints2D = this->fromStringToPoints2D(imagePoints->getContent());
+        std::cout<<"YOOo";
 
 
-
-        spdlog::info("handle() - image {} height: {} width: {}", i, imageDecoded.rows, imageDecoded.cols);
+        spdlog::info("handle() - image  height: {} width: {}",  imageDecoded.rows, imageDecoded.cols);
 
      
 
-        imageToProcess=cameraMatrixMat;
-    }
 
-    float surface = calculateSurface(imageToProcess, 20000, 10, 30, 10, 30, 0, 28);
+    
+
+    float surface = calculateSurface(imageDecoded, 20000, 10, 30, 10, 30, 0, 28);
 
     spdlog::info("handle() - surface: {}", surface);
 
     response.send(Pistache::Http::Code::Ok, std::to_string(surface));
 }
 
-float_t SurfaceApi::calculateSurface(std::cv::Mat image,
+float_t SurfaceApi::calculateSurface(cv::Mat image,
                                    uint32_t numberOfPoints, uint32_t xBoxRangeFrom, uint32_t xBoxRangeTo,
                                    uint32_t yBoxRangeFrom, uint32_t yBoxRangeTo
                                    ) {
