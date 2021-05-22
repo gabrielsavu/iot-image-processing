@@ -58,12 +58,12 @@ float_t SurfaceApi::calculateSurface(cv::Mat image,
                                    ) {
 
     std::vector<cv::Point2f> points(std::vector<cv::Point2f>(numberOfPoints));
-    for (int i = 0; i < images.size(); i++) {
+
         for (int j = 0; j < numberOfPoints; j++) {
             auto tempPoints = this->randomPoint2D(xBoxRangeFrom, xBoxRangeTo, yBoxRangeFrom, yBoxRangeTo);
-            points[i][j] = tempPoints;
+            points[j] = tempPoints;
         }
-    }
+    
 
     float_t easternPoint=9999;
     float_t southernPoint=99999;
