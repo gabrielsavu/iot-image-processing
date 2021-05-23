@@ -201,7 +201,7 @@
             "items": {
               "$ref": "#/components/schemas/Point2d"
             },
-            "example": "102 6109 5956 6005 5873 2133 102 2209"
+            "example": "102 6109\n5956 6005\n5873 2133\n102 2209"
           },
           "objectPoints{i}": {
             "description": "A list of points in 3d. The i'th image object point. Separated by new line.",
@@ -209,7 +209,7 @@
             "items": {
               "$ref": "#/components/schemas/Point3d"
             },
-            "example": "0 0 28 40 0 28 40 40 28 0 40 28"
+            "example": "0 0 28\n40 0 28\n40 40 28\n0 40 28"
           },
           "cameraMatrix": {
             "$ref": "#/components/schemas/CameraMatrix"
@@ -235,13 +235,13 @@
         "type": "string",
         "description": "The camera matrix. The intrinsic matrix is parameterized by Hartley and Zisserman.",
         "pattern": "^\\d+\\s\\d+\\s\\d+\\n\\d+\\s\\d+\\s\\d+\\n\\d+\\s\\d+\\s\\d+$",
-        "example": "5575.0 0 3000 0 5575.0 4000 0 0 1"
+        "example": "5575.0 0 3000\n0 5575.0 4000\n0 0 1"
       },
       "DistCoeff": {
         "type": "string",
         "description": "he camera dist coefficients. Usually a zero 5 column vector.",
         "pattern": "^\\d+\\s\\d+\\s\\d+\\n\\d+\\s\\d+\\s\\d+\\n\\d+\\s\\d+\\s\\d+$",
-        "example": "0 0 0 0 0"
+        "example": "0\n0\n0\n0\n0"
       },
       "VolumeResponse": {
         "type": "number",
