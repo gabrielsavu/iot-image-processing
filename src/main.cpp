@@ -4,10 +4,12 @@
 #include "endpoints/SurfaceApi.h"
 #include "spdlog/spdlog.h"
 #include <spdlog/sinks/stdout_sinks.h>
+#include <endpoints/RoiApi.h>
+#include <endpoints/BiggestComponentApi.h>
 
 
 int main(int argc, char **argv) {
-    std::cout<<"YHWLSD";
+    std::cout << "YHWLSD";
     spdlog::set_pattern("[%H:%M:%S %z] [%^%L%$] [thread %t] %v");
 
     sigset_t signals;
@@ -23,11 +25,15 @@ int main(int argc, char **argv) {
 
     auto volumeApi = std::make_shared<VolumeApi>();
     auto surfaceApi = std::make_shared<SurfaceApi>();
+    auto roiApi = std::make_shared<RoiApi>();
+    auto biggestApi = std::make_shared<BiggestComponentApi>();
 
     Application application("localhost", 8080, 4);
-       application.addPostRoute("/surface",&SurfaceApi::handle,surfaceApi);
+    application.addPostRoute("/surface", &SurfaceApi::handle, surfaceApi);
     application.addPostRoute("/volume", &VolumeApi::handle, volumeApi);
- 
+    application.addPostRoute("/roi", &RoiApi::handle, roiApi);
+    application.addPostRoute("/component", &BiggestComponentApi::handle, biggestApi);
+
     application.start();
 
 

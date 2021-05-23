@@ -48,6 +48,7 @@ $ sudo apt-get install libboost-all-dev
 
 
 # Example usage:
+Volume API:
 ```bash
 curl --location --request POST 'http://localhost:8080/volume' \
 --form 'n="2"' \
@@ -77,4 +78,26 @@ curl --location --request POST 'http://localhost:8080/volume' \
 0
 0
 0"'
+```
+
+Surface API:
+```bash
+curl --location --request POST 'http://localhost:8080/surface' \
+--form 'image=@"/home/hyperledger/Desktop/iot-image-processing/res/on_top.jpg"'
+```
+
+Biggest connected component API:
+```bash
+curl --location --request POST 'http://localhost:8080/component' \
+--form 'image=@"/home/hyperledger/Desktop/iot-image-processing/res/portrait.jpg"'
+```
+
+ROI API:
+```bash
+curl --location --request POST 'http://localhost:8080/roi' \
+--form 'image=@"/home/hyperledger/Desktop/iot-image-processing/res/portrait.jpg"' \
+--form 'xTop="2500"' \
+--form 'yTop="4500"' \
+--form 'width="1500"' \
+--form 'height="1500"'
 ```

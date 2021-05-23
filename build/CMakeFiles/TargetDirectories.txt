@@ -1,3 +1,0 @@
-/home/avram/Desktop/iot-image-processing/build/CMakeFiles/rebuild_cache.dir
-/home/avram/Desktop/iot-image-processing/build/CMakeFiles/edit_cache.dir
-/home/avram/Desktop/iot-image-processing/build/CMakeFiles/image-processing.dir

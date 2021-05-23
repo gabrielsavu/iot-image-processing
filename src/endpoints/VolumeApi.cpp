@@ -2,6 +2,7 @@
 // Created by Savu Liviu-Gabriel on 4/23/21.
 //
 
+#include <stateful/Stateful.h>
 #include "VolumeApi.h"
 
 void VolumeApi::handle(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
@@ -10,17 +11,40 @@ void VolumeApi::handle(const Pistache::Rest::Request &request, Pistache::Http::R
     BodyFormParser bodyFormParser(request.body());
     bodyFormParser.parse();
 
+    Stateful stateful = Stateful::Get();
+    bool isCameraMatrix = stateful.isState("cameraMatrix");
+    bool isDistCoefficients = stateful.isState("distCoefficients");
+
+
     auto n = bodyFormParser.get("n");
     auto cameraMatrix = bodyFormParser.get("cameraMatrix");
     auto distCoefficients = bodyFormParser.get("distCoefficients");
-    if (n == nullptr || cameraMatrix == nullptr || distCoefficients == nullptr) {
+
+
+    if (n == nullptr) {
         spdlog::info("handle() - end, n not found in body Not_Acceptable");
-        response.send(Pistache::Http::Code::Not_Acceptable);
+        response.send(Pistache::Http::Code::Not_Acceptable, "The parameter 'n' not found in the body.");
+        return;
+    }
+    if (!isCameraMatrix && cameraMatrix == nullptr) {
+        spdlog::info("handle() - end, cameraMatrix not found in body Not_Acceptable");
+        response.send(Pistache::Http::Code::Not_Acceptable, "The camera matrix is required for the first request.");
+        return;
+    }
+    if (!isDistCoefficients && distCoefficients == nullptr) {
+        spdlog::info("handle() - end, distCoefficients not found in body Not_Acceptable");
+        response.send(Pistache::Http::Code::Not_Acceptable, "The dist coefficients is required for the first request.");
         return;
     }
 
-    auto cameraMatrixMat = this->fromStringToMatrix(cameraMatrix->getContent(), 3, 3);
-    auto distCoefficientsMat = this->fromStringToMatrix(distCoefficients->getContent(), 5, 1);
+    if (!isDistCoefficients) {
+        stateful.addState("distCoefficients", distCoefficients->getContent());
+    }
+    if (!isCameraMatrix) {
+        stateful.addState("cameraMatrix", cameraMatrix->getContent());
+    }
+    auto distCoefficientsMat = this->fromStringToMatrix(stateful.getState("distCoefficients"), 5, 1);
+    auto cameraMatrixMat = this->fromStringToMatrix(stateful.getState("cameraMatrix"), 3, 3);
     std::vector<std::tuple<cv::Mat, cv::Mat, cv::Mat, cv::Mat, cv::Mat>> imagesToProcess;
 
     for (int i = 0; i < std::atoi(n->getContent().c_str()); i++) {

@@ -173,3 +173,9 @@ cv::Point2f EndpointApi::randomPoint2D(uint32_t xRangeFrom, uint32_t xRangeTo,
 
     return point;
 }
+
+std::vector<uchar> EndpointApi::encodeImage(std::string encoding, cv::Mat image) {
+    std::vector<uchar> buffer;
+    cv::imencode(encoding, image, buffer);
+    return buffer;
+}

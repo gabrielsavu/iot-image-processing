@@ -82,6 +82,9 @@ protected:
     cv::Point2f randomPoint2D(uint32_t xRangeFrom, uint32_t xRangeTo,
                               uint32_t yRangeFrom, uint32_t yRangeTo);
 
+
+    std::vector<uchar> encodeImage(std::string encoding, cv::Mat image);
+
 public:
     /// This function handles the request for this specific endpoint.
     /// \param request the request object

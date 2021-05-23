@@ -1,0 +1,268 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Image Team API",
+    "description": "This is an API for a device that process photos. All the photos need to be taken in a controlled environment.",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0"
+  },
+  "paths": {
+    "/volume": {
+      "post": {
+        "summary": "Calculate the volume of an object in 3d. This operation support stateful variables: cameraMatrix, distCoefficients.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/VolumeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VolumeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Not Acceptable, if there are missing parameters."
+          }
+        }
+      }
+    },
+    "/surface": {
+      "post": {
+        "summary": "Calculate the surface of an object visible in the image.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/SurfaceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SurfaceResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Not Acceptable, if there are missing parameters."
+          }
+        }
+      }
+    },
+    "/component": {
+      "post": {
+        "summary": "Gets the biggest connected component in the image.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/ComponentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Not Acceptable, if there are missing parameters."
+          }
+        }
+      }
+    },
+    "/roi": {
+      "post": {
+        "summary": "Region of interest.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/RoiRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoiResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Not Acceptable, if there are missing parameters."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RoiRequest": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "description": "The image.",
+            "type": "string",
+            "format": "binary"
+          },
+          "xTop": {
+            "description": "The top x axis pixel of the rectangle",
+            "type": "integer",
+            "format": "uint32"
+          },
+          "yTop": {
+            "description": "The top y axis pixel of the rectangle",
+            "type": "integer",
+            "format": "uint32"
+          },
+          "width": {
+            "description": "The width of the rectangle",
+            "type": "integer",
+            "format": "uint32"
+          },
+          "height": {
+            "description": "The height of the rectangle",
+            "type": "integer",
+            "format": "uint32"
+          }
+        },
+        "description": "Multipart form data request"
+      },
+      "ComponentRequest": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "description": "The image.",
+            "type": "string",
+            "format": "binary"
+          }
+        },
+        "description": "Multipart form data request"
+      },
+      "SurfaceRequest": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "description": "The image.",
+            "type": "string",
+            "format": "binary"
+          }
+        },
+        "description": "Multipart form data request"
+      },
+      "VolumeRequest": {
+        "type": "object",
+        "properties": {
+          "n": {
+            "description": "Number of images, at least 2.",
+            "type": "integer",
+            "format": "int32"
+          },
+          "image{i}": {
+            "description": "The i'th image.",
+            "type": "string",
+            "format": "binary"
+          },
+          "imagePoints{i}": {
+            "description": "A list of pixels from the i'th image that corresponds to the i'th 3d object point. Separated by new line.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Point2d"
+            },
+            "example": "102 6109 5956 6005 5873 2133 102 2209"
+          },
+          "objectPoints{i}": {
+            "description": "A list of points in 3d. The i'th image object point. Separated by new line.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Point3d"
+            },
+            "example": "0 0 28 40 0 28 40 40 28 0 40 28"
+          },
+          "cameraMatrix": {
+            "$ref": "#/components/schemas/CameraMatrix"
+          },
+          "distCoefficients": {
+            "$ref": "#/components/schemas/DistCoeff"
+          }
+        },
+        "description": "Multipart form data request"
+      },
+      "Point2d": {
+        "type": "string",
+        "description": "A 2d point",
+        "pattern": "^\\d+\\s\\d+$"
+      },
+      "Point3d": {
+        "type": "string",
+        "description": "A 3d point",
+        "pattern": "^\\d+\\s\\d+\\s\\d+$",
+        "example": "02 6109"
+      },
+      "CameraMatrix": {
+        "type": "string",
+        "description": "The camera matrix. The intrinsic matrix is parameterized by Hartley and Zisserman.",
+        "pattern": "^\\d+\\s\\d+\\s\\d+\\n\\d+\\s\\d+\\s\\d+\\n\\d+\\s\\d+\\s\\d+$",
+        "example": "5575.0 0 3000 0 5575.0 4000 0 0 1"
+      },
+      "DistCoeff": {
+        "type": "string",
+        "description": "he camera dist coefficients. Usually a zero 5 column vector.",
+        "pattern": "^\\d+\\s\\d+\\s\\d+\\n\\d+\\s\\d+\\s\\d+\\n\\d+\\s\\d+\\s\\d+$",
+        "example": "0 0 0 0 0"
+      },
+      "VolumeResponse": {
+        "type": "number",
+        "description": "The volume of the object.",
+        "example": 243.3
+      },
+      "SurfaceResponse": {
+        "type": "number",
+        "description": "The surface of the object.",
+        "example": 243.3
+      },
+      "ComponentResponse": {
+        "type": "string",
+        "format": "binary",
+        "description": "The image with the biggest connected component in black and white."
+      },
+      "RoiResponse": {
+        "type": "string",
+        "format": "binary",
+        "description": "Region of interest image."
+      }
+    }
+  }
+}

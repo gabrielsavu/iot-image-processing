@@ -18,6 +18,10 @@ add_executable(image-processing
         src/endpoints/VolumeApi.h
         src/endpoints/SurfaceApi.cpp
         src/endpoints/SurfaceApi.h
+        src/endpoints/BiggestComponentApi.cpp
+        src/endpoints/BiggestComponentApi.h
+        src/endpoints/RoiApi.cpp
+        src/endpoints/RoiApi.h
         src/Application.cpp
         src/Application.h
         src/endpoints/EndpointApi.cpp
@@ -25,7 +29,9 @@ add_executable(image-processing
         src/utils/body-parser/BodyFormParser.cpp
         src/utils/body-parser/BodyFormParser.h
         src/utils/body-parser/FormData.cpp
-        src/utils/body-parser/FormData.h)
+        src/utils/body-parser/FormData.h
+        src/stateful/Stateful.cpp
+        src/stateful/Stateful.h)
 target_link_libraries(image-processing
         ${OpenCV_LIBS}
         ${Boost_LIBRARIES}
